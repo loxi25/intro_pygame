@@ -1,17 +1,18 @@
 import pygame
 import sys
-import math 
-
+import math
 rojo = (255, 0, 0)
 azul = (0, 0, 255)
 verde = (0,255,0)
 rosado = (255,192,203)
 negro = (0,0,0)
 amarillo = (255,255,0)
-blanco = (255,255,255)
-Naranja = (255,165,0)
-cian = ( 0,255,255)
+blanco = (225,225,225)
+naranja = (255,165,0)
+cian = (0, 255, 255)
+
 PI = math.pi
+
 pygame.init()
 
 ventana = pygame.display.set_mode((400, 400))
@@ -61,27 +62,30 @@ while 1:
     # Dibujar un poligono
     puntos3 = [(200,200), (300,325), (400,350)]
     pygame.draw.polygon(ventana, amarillo,puntos3,1)
+    
+    # Dibujar un cinculo
+    # Centro dl circulo: (300,100)
+    # Radio del circulo: 100
+    # Grosor contorno circulo: 1
+    pygame.draw.circle(ventana, blanco, (300,100), 50, 1)
 
-    # dibujar un circulo
-    # centro del circulo: (300,100)
-    # radio del circulo: 100
-    # grosor contorno circulo: 1
-    pygame.draw.circle(ventana,  blanco, (300,100), 50 , 1)
+    # Dibujar un eclipse
+    pygame.draw.ellipse(ventana, naranja, (100, 150, 200, 100), 1)
 
-    # Dibujar una elipse 
-    pygame.draw.ellipse(ventana,Naranja, (100, 150, 200, 100), 1)
-    # arcon de circuferencia 
+    # Dibujar un arco de circuferencia
+    pygame.draw.ellipse(ventana, naranja, (100, 150, 200, 100), 1)
 
-    # arco de circunferencia 
-    pygame.draw.arc(ventana, cian , (300, 25, 180, 150), PI/2, PI,1)
+    #Arco de circuferencia
+    pygame.draw.arc(ventana, cian, (300, 25, 180, 150), PI/2, PI, 1 )
 
-# texto
-fuente_arial = pygame.font.SysFont("Arial", 35 , 1 , 1)
-texto = fuente_arial.render("sistemas guanenta",1 , blanco)
-ventana.blit(texto,(50,50))
+    # Agregar texto
+    # Fuente tipo Arial, tamaño 35, negrilla y cursiva.
+    fuente_arial = pygame.font.SysFont("Arial", 35, 1, 1)
+    texto = fuente_arial.render("Sistemas Guanenta", 1, blanco)
+    ventana.blit(texto,(50,50))
 
-# Actualiza la visualizacion de la ventana
-pygame.display.flip()
+    # Actualiza la visualizacion de la ventana
+    pygame.display.flip()
 ####################################
 # Fin del bucle principal del juego
 ####################################
