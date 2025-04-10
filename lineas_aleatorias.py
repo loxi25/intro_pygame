@@ -28,7 +28,7 @@ while 1:
     ventana.blit(texto, (150, 30))
 
     fuente_area = pygame.font.SysFont("arial", 25, 1, 1)
-    texto = fuente_area.render("Jorge Silva", 1, negro)
+    texto = fuente_area.render("oscar sanchez", 1, negro)
     ventana.blit(texto, (0, 475))
 
     pygame.draw.rect(ventana, negro, ((50, 100), (350, 300)), 1)
