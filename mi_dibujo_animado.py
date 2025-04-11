@@ -61,7 +61,7 @@ while 1:
         if event.type == pygame.QUIT:
             sys.exit()
   
-
+# aaaaaa
 
     pygame.draw.rect(ventana, blanco, ((rect_x, rect_y), (rect_w, rect_h)), 1)
     pygame.draw.rect(ventana, gris , (200,200, 300,100))
