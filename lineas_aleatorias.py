@@ -4,7 +4,7 @@ import random
 
 color_ventana = (0, 100, 0)
 negro = (0, 0, 0)
-
+aa= ( 0,255,0)
 pygame.init()
 
 ventana = pygame.display.set_mode((500, 500))
@@ -31,7 +31,7 @@ while 1:
     texto = fuente_area.render("oscar sanchez", 1, negro)
     ventana.blit(texto, (0, 475))
 
-    pygame.draw.rect(ventana, negro, ((50, 100), (350, 300)), 1)
+    pygame.draw.rect(ventana, aa , ((50, 100), (350, 300)), 1)
 
     for i in range(100):
 
