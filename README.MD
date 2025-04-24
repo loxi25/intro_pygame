@@ -39,3 +39,79 @@ while True
 - la nocion de grupo permite agrupar los objetos del mismo tipo. ejemplo : todos los soldados de un ejercito lo que se entiende como una colceccion de instancias de una clase Soldado 
 
 - un determindado proceso se puede aplicaar a un conjunto o subconjunto de sprites. Ejemplo: cambiar el color de todos los enemigos o hacer invisibles algunos objetos
+
+
+
+# explicacion de los SPRITES  
+- import pygame
+import sys
+
+# Inicializar Pygame
+pygame.init()
+
+# Definir dimensiones de la pantalla
+ancho = 400
+alto = 300
+pantalla = pygame.display.set_mode((ancho, alto))
+pygame.display.set_caption("Sprite Simple")
+
+# Cargar la imagen del sprite
+try:
+    sprite_img = pygame.image.load("cuadrado_rojo.png").convert_alpha()
+except pygame.error as e:
+    print(f"Error al cargar la imagen: {e}")
+    sys.exit()
+
+# Posición inicial del sprite
+x = ancho // 2 - sprite_img.get_width() // 2
+y = alto // 2 - sprite_img.get_height() // 2
+velocidad = 5
+
+# Bucle principal del juego
+ejecutando = True
+while ejecutando:
+    for evento in pygame.event.get():
+        if evento.type == pygame.QUIT:
+            ejecutando = False
+
+    # Obtener las teclas presionadas
+    keys = pygame.key.get_pressed()
+
+    # Mover el sprite basado en las teclas
+    if keys[pygame.K_LEFT]:
+        x -= velocidad
+    if keys[pygame.K_RIGHT]:
+        x += velocidad
+    if keys[pygame.K_UP]:
+        y -= velocidad
+    if keys[pygame.K_DOWN]:
+        y += velocidad
+
+    # Mantener el sprite dentro de los límites
+    if x < 0:
+        x = 0
+    if x > ancho - sprite_img.get_width():
+        x = ancho - sprite_img.get_width()
+    if y < 0:
+        y = 0
+    if y > alto - sprite_img.get_height():
+        y = alto - sprite_img.get_height()
+
+    # Dibujar el fondo
+    pantalla.fill((255, 255, 255))  # Fondo blanco
+
+    # Dibujar el sprite en su nueva posición
+    pantalla.blit(sprite_img, (x, y))
+
+    # Actualizar la pantalla
+    pygame.display.flip()
+
+# Salir de Pygame
+pygame.quit()
+sys.exit()
+
+# que es un sprite ? 
+
+
+
+
